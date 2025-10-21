@@ -49,11 +49,9 @@ def draw():
     screen.draw.text(personaje.salud, center=(325, 10), color = 'white', fontsize = 16)
     screen.draw.text(personaje.ataque, center=(325, 25), color = 'white', fontsize = 16)
 
-
-
-
-
-
+def on_key_down(key):
+    if keyboard.right and personaje.x + celda.width < WIDTH - celda.width:
+        personaje.x += celda.width
 
 
 
