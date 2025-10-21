@@ -17,7 +17,7 @@ mi_mapa = [[0, 0, 0, 0, 0, 0, 0],
           [0, 0, 0, 0, 0, 0, 0]]
 
 def dibujar_mi_propio_mapa():
-    for i in range(len(dibujar_mi_propio_mapa)):
+    for i in range(len(mi_mapa)):
         for j in range(len(dibujar_mi_propio_mapa[0])):
             celda.left = celda.width*j
             celda.top = celda.height*i
