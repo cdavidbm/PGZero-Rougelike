@@ -11,6 +11,10 @@ HEIGHT = celda.height * altura_en_cantidad_de_celdas
 TITLE = "Mazmorras"
 FPS = 30
 
+personaje = Actor("stand")
+personaje.salud = 100
+personaje.ataque = 5
+
 mi_mapa = [[0, 0, 0, 0, 0, 0, 0], 
           [0, 1, 2, 1, 3, 1, 0], 
           [0, 1, 1, 2, 1, 1, 0], 
@@ -41,6 +45,10 @@ def dibujar_mi_propio_mapa():
 
 def draw():
     dibujar_mi_propio_mapa()
+    personaje.draw()
+    screen.draw.text(personaje.salud, center=(325, 10), color = 'white', fontsize = 16)
+    screen.draw.text(personaje.ataque, center=(325, 25), color = 'white', fontsize = 16)
+
 
 
 
