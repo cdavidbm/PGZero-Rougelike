@@ -1,8 +1,11 @@
 #pgzero
 
 celda = Actor("border")
-anchura_en_cantidad_de_celdas = 5
-altura_en_cantidad_de_celdas = 5
+celda1 = Actor("crack")
+celda2 = Actor("bones")
+celda3 = Actor("floor")
+anchura_en_cantidad_de_celdas = 7
+altura_en_cantidad_de_celdas = 7
 WIDTH = celda.width * anchura_en_cantidad_de_celdas
 HEIGHT = celda.height * altura_en_cantidad_de_celdas
 TITLE = "Mazmorras"
@@ -19,9 +22,22 @@ mi_mapa = [[0, 0, 0, 0, 0, 0, 0],
 def dibujar_mi_propio_mapa():
     for i in range(len(mi_mapa)):
         for j in range(len(mi_mapa[0])):
-            celda.left = celda.width*j
-            celda.top = celda.height*i
-            celda.draw()
+            if mi_mapa[i][j] == 0:
+                celda.left = celda.width*j
+                celda.top = celda.height*i
+                celda.draw()
+            elif mi_mapa[i][j] == 1:
+                celda1.left = celda1.width*j
+                celda1.top = celda1.height*i
+                celda1.draw()
+            elif mi_mapa[i][j] == 2:
+                celda2.left = celda2.width*j
+                celda2.top = celda2.height*i
+                celda2.draw()
+            elif mi_mapa[i][j] == 3:
+                celda3.left = celda3.width*j
+                celda3.top = celda3.height*i
+                celda3.draw()
 
 def draw():
     dibujar_mi_propio_mapa()
