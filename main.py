@@ -52,9 +52,14 @@ def draw():
 def on_key_down(key):
     if keyboard.right and personaje.x + celda.width < WIDTH - celda.width:
         personaje.x += celda.width
-
-
-
+    elif keyboard.left and personaje.x - celda.width > celda.width:
+        personaje.x -= celda.width
+    elif keyboard.up:
+        personaje.y -= celda.height
+    elif keyboard.down:
+        personaje.y += celda.height
+    
+    
 
 
 """
