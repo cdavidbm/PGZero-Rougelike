@@ -1,10 +1,10 @@
 #pgzero
 
-celda = 50
+celda = Actor("border")
 anchura_en_cantidad_de_celdas = 5
 altura_en_cantidad_de_celdas = 5
-WIDTH = celda * anchura_en_cantidad_de_celdas
-HEIGHT = celda * altura_en_cantidad_de_celdas
+WIDTH = celda.width * anchura_en_cantidad_de_celdas
+HEIGHT = celda.height * altura_en_cantidad_de_celdas
 TITLE = "Mazmorras"
 FPS = 30
 
@@ -25,6 +25,7 @@ def dibujar_mi_propio_mapa():
 
 def draw():
     dibujar_mi_propio_mapa()
+
 
 
 
