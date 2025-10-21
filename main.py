@@ -26,3 +26,24 @@ def dibujar_mi_propio_mapa():
 def draw():
     dibujar_mi_propio_mapa()
 
+
+
+
+
+
+
+
+
+"""
+for i in range(5):
+    for j in range(5):
+        print("el ciclo grande i:", i, "el subciclo j: ", j)
+        
+print("------------------")
+print("tabla de multiplicar")
+print("------------------")
+
+for i in range(5):
+    for j in range(5):
+        print(i , "x", j, "=", i*j)
+"""
