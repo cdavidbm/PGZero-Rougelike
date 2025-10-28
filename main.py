@@ -84,3 +84,14 @@ def on_key_down(key):
         char.y += cell.height
     elif keyboard.up and char.y - cell.height > cell.height:
         char.y -= cell.height
+
+
+    enemy_index = char.collidelist(enemies)
+    if enemy_index != -1:
+        enemy = enemies[enemy_index]
+        enemy.health -= char.attack
+        char.health -= enemy.attack
+
+
+
+    
