@@ -1,4 +1,5 @@
 #pgzero
+import random
 
 # Ventana de juego
 cell = Actor('border')
@@ -30,6 +31,15 @@ char.left = cell.width
 char.health = 100
 char.attack = 5
 
+# Enemigos:
+enemies = []
+for i in range(5):
+    x = random.randint(1,7) * cell.width
+    y = random.randint(1,7) * cell.height
+    enemy = Actor("enemy", topleft = (x, y))
+    enemies.append(enemy)
+
+
 def map_draw():
     for i in range(len(my_map)):
         for j in range(len(my_map[0])):
@@ -58,6 +68,8 @@ def draw():
     screen.draw.text(char.health, center=(75, 475), color = 'white', fontsize = 20)
     screen.draw.text("AP:", center=(375, 475), color = 'white', fontsize = 20)
     screen.draw.text(char.attack, center=(425, 475), color = 'white', fontsize = 20)
+    for i in range(len(enemies)):
+        enemies[i].draw()
 
 def on_key_down(key):
     if keyboard.right and char.x + cell.width < WIDTH - cell.width:
@@ -70,7 +82,6 @@ def on_key_down(key):
         char.y += cell.height
     elif keyboard.up and char.y - cell.height > cell.height:
         char.y -= cell.height
-
 
 
 """
