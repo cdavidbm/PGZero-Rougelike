@@ -1,6 +1,5 @@
 #pgzero
 import random
-
 # Ventana de juego
 cell = Actor('border')
 cell1 = Actor('floor')
@@ -10,7 +9,6 @@ size_w = 9 # Anchura del campo en celdas
 size_h = 10 # Altura del campo en celdas
 WIDTH = cell.width * size_w
 HEIGHT = cell.height * size_h
-
 TITLE = "Mazmorras" # Título de la ventana de juego
 FPS = 30 # Número de fotogramas por segundo
 my_map = [[0, 0, 0, 0, 0, 0, 0, 0, 0], 
@@ -30,7 +28,6 @@ char.top = cell.height
 char.left = cell.width
 char.health = 100
 char.attack = 5
-
 # Enemigos:
 enemies = []
 for i in range(5):
@@ -39,8 +36,12 @@ for i in range(5):
     enemy = Actor("enemy", topleft = (x, y))
     enemy.health = random.randint(10, 20)
     enemy.attack = random.randint(5, 10)
+    enemy.bonus = random.randint(0,2)
     enemies.append(enemy)
 
+# Bonificaciones
+hearts = []
+swords = []
 
 def map_draw():
     for i in range(len(my_map)):
@@ -72,7 +73,11 @@ def draw():
     screen.draw.text(char.attack, center=(425, 475), color = 'white', fontsize = 20)
     for i in range(len(enemies)):
         enemies[i].draw()
-
+    for i in range(len(hearts)):
+        hearts[i].draw()
+    for i in range(len(swords)):
+        swords[i].draw()
+    
 def on_key_down(key):
     old_x = char.x
     old_y = char.y
@@ -86,8 +91,7 @@ def on_key_down(key):
         char.y += cell.height
     elif keyboard.up and char.y - cell.height > cell.height:
         char.y -= cell.height
-
-
+ 
     enemy_index = char.collidelist(enemies)
     if enemy_index != -1:
         char.x = old_x
@@ -96,8 +100,14 @@ def on_key_down(key):
         enemy.health -= char.attack
         char.health -= enemy.attack
         if enemy.health <= 0:
-            enemies.pop(enemy_index)
-
-
-
+            if enemy.bonus == 1:
+                heart = Actor("heart")
+                heart.pos = enemy.pos
+                hearts.append(heart)
+            elif enemy.bonus == 2:
+                sword = Actor("sword")
+                sword.pos = enemy.pos
+                swords.append(sword)
+            enemies.pop(enemy)
+                
     
