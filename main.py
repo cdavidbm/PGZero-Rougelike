@@ -74,6 +74,8 @@ def draw():
         enemies[i].draw()
 
 def on_key_down(key):
+    old_x = char.x
+    old_y = char.y
     if keyboard.right and char.x + cell.width < WIDTH - cell.width:
         char.x += cell.width
         char.image = 'stand'
@@ -88,9 +90,13 @@ def on_key_down(key):
 
     enemy_index = char.collidelist(enemies)
     if enemy_index != -1:
+        char.x = old_x
+        char.y = old_y
         enemy = enemies[enemy_index]
         enemy.health -= char.attack
         char.health -= enemy.attack
+        if enemy.health <= 0:
+            enemies.pop(enemy_index)
 
 
 
