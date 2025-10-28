@@ -108,6 +108,6 @@ def on_key_down(key):
                 sword = Actor("sword")
                 sword.pos = enemy.pos
                 swords.append(sword)
-            enemies.pop(enemy)
+            enemies.pop(enemy_index)
                 
     
