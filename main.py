@@ -37,6 +37,8 @@ for i in range(5):
     x = random.randint(1,7) * cell.width
     y = random.randint(1,7) * cell.height
     enemy = Actor("enemy", topleft = (x, y))
+    enemy.health = random.randint(10, 20)
+    enemy.attack = random.randint(5, 10)
     enemies.append(enemy)
 
 
@@ -82,18 +84,3 @@ def on_key_down(key):
         char.y += cell.height
     elif keyboard.up and char.y - cell.height > cell.height:
         char.y -= cell.height
-
-
-"""
-for i in range(5):
-    for j in range(5):
-        print("el ciclo grande i:", i, "el subciclo j: ", j)
-        
-print("------------------")
-print("tabla de multiplicar")
-print("------------------")
-
-for i in range(5):
-    for j in range(5):
-        print(i , "x", j, "=", i*j)
-"""
